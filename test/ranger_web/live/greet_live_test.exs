@@ -5,7 +5,7 @@ defmodule RangerWeb.GreetLiveTest do
 
   test "renders disconnected state", testing_ds do
     # Result of
-    # IO.inspect(something, pretty: true)
+    # IO.inspect(testing_ds, pretty: true)
     #
     # %{
     #   async: false,
