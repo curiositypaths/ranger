@@ -32,6 +32,25 @@ defmodule RangerWeb.CounterLive do
         </svg>
       </.button>
     </div>
+    <div class="max-w-xs mx-auto flex justify-center space-x-10 border-2 p-8">
+      <.button
+        id="broken_decrement"
+        phx-click="does_nothing"
+        class="bg-red-500 hover:bg-red-700"
+        type="button"
+      >
+        Does nothing
+      </.button>
+
+      <.button
+        id="unhandled_decrement"
+        phx-click="unhandled_event"
+        class="bg-red-500 hover:bg-red-700"
+        type="button"
+      >
+        Emit unhandled event (🔥 crash)
+      </.button>
+    </div>
     """
   end
 
@@ -45,5 +64,9 @@ defmodule RangerWeb.CounterLive do
 
   def handle_event("decrease", _, socket) do
     {:noreply, update(socket, :count, fn count -> count - 1 end)}
+  end
+
+  def handle_event("does_nothing", _, socket) do
+    {:noreply, socket}
   end
 end
