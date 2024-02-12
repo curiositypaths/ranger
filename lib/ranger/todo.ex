@@ -13,5 +13,7 @@ defmodule Ranger.Todo do
     todo
     |> cast(attrs, [:body])
     |> validate_required([:body])
+    # Added to test todo submission failure
+    |> validate_length(:body, min: 10)
   end
 end
