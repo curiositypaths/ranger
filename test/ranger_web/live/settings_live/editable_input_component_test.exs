@@ -4,4 +4,12 @@ defmodule RangerWeb.SettingsLive.EditableInputComponentTest do
   import Phoenix.LiveViewTest
 
   alias RangerWeb.SettingsLive.EditableInputComponent
+
+  test "renders field test" do
+    user = %{name: "Some Name"}
+
+    html = render_component(EditableInputComponent, id: "name", field: :name, user: user)
+
+    assert html =~ user.name
+  end
 end
